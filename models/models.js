@@ -9,21 +9,21 @@ var sequelize= new Sequelize(null,null,null,
 //Importar la definicion de la tabla Quiz en quiz.js
 var Quiz=sequelize.import(path.join(__dirname,'quiz'));
 
-export.Quiz=Quiz;//exportar definicion de tabla Quiz
+exports.Quiz=Quiz;//exportar definicion de tabla Quiz
 //sequelize.sync() crea e inicializa tabla de preguntas en DB
-sequelize.sync().success(function  () {
+sequelize.sync().then(function  () {
 //success() ejecuta el manejador una vez creada la tabla
-Quiz.count().success(
+Quiz.count().then(
 	function  (count) {
 		if(count===0){
 			Quiz.create({
 				pregunta: 'capital de italia',
 				respuesta: 'roma'
-		})
-		.success(function(){console.log('Base de datos inicializada')});
+		}).then(function(){console.log('Base de datos inicializada')});
 		};
 		// body...
 	});
 	// body...
-});
+}
+);
 
