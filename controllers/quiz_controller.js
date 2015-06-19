@@ -1,18 +1,18 @@
 var models =require('../models/models.js');
 
 exports.show=function  (req, res) {
-models.Quiz.find(req.params.quizId).then(function(quiz){
+models.Quiz.findById(req.params.quizId).then(function(quiz){
 res.render('quizes/show',{quiz: quiz});
 });
 };
 
 exports.answer=function  (req, res) {
-models.Quiz.find(req.params.quizId).then(function(quiz){	
+models.Quiz.findById(req.params.quizId).then(function(quiz){	
 
 if(req.query.respuesta===quiz.respuesta){
-res.render('quizes/answer',{respuesta: 'correcto'});
+res.render('quizes/answer',{quiz:quiz.id, respuesta: 'correcto'});
 } else {
-res.render('quizes/answer',{respuesta: 'incorrecto'});
+res.render('quizes/answer',{quiz:quiz.id,respuesta: 'incorrecto'});
 }
 });
 

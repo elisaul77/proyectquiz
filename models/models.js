@@ -38,7 +38,7 @@ Quiz.count().then(
 						});
 			Quiz.create({
 				pregunta: 'capital de Portugal',
-				respuesta: 'Lisboa'
+				respuesta: 'lisboa'
 						})
 		.then(function(){console.log('Base de datos inicializada')});
 		};
