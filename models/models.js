@@ -35,7 +35,12 @@ Quiz.count().then(
 			Quiz.create({
 				pregunta: 'capital de italia',
 				respuesta: 'roma'
-		}).then(function(){console.log('Base de datos inicializada')});
+						});
+			Quiz.create({
+				pregunta: 'capital de Portugal',
+				respuesta: 'Lisboa'
+						})
+		.then(function(){console.log('Base de datos inicializada')});
 		};
 		// body...
 	});
