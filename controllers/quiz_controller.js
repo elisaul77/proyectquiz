@@ -15,7 +15,10 @@ exports.load=function (req,res,next,quizId) {
 exports.index=function (req, res) {
 	
 	if (req.query.search) {
-		models.Quiz.findAll({where: ["pregunta like ?", req.query.search], order: 'pregunta ASC'}).then(function (quizes) {
+		var xer = (req.query.search)
+	xer=xer.replace(" ","%");
+	xer='%'+xer+'%';		
+		models.Quiz.findAll({where: ["pregunta like ?", xer], order: 'pregunta ASC'}).then(function (quizes) {
 		res.render('quizes/index.ejs',{quizes:quizes , cabeza:"estas buscando"});
 	}).catch(function (error) {next(error);});
 		
