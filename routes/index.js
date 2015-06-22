@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz',errors:[] });
 });
 router.get('/author', function(req, res) {
-  res.render('author');
+  res.render('author',{errors:[]});
 });
 router.param('quizId',quizController.load);
 router.get('/quizes',quizController.index);
