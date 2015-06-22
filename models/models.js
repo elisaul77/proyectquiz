@@ -34,11 +34,13 @@ Quiz.count().then(
 		if(count===0){
 			Quiz.create({
 				pregunta: 'capital de italia',
-				respuesta: 'roma'
+				respuesta: 'roma',
+				indice:'humanidades'
 						});
 			Quiz.create({
 				pregunta: 'capital de Portugal',
-				respuesta: 'lisboa'
+				respuesta: 'lisboa',
+				indice:'humanidades'
 						})
 		.then(function(){console.log('Base de datos inicializada')});
 		};
