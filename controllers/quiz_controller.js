@@ -118,9 +118,8 @@ exports.update= function (req, res) {
 				res.render('quizes/edit',{quiz: req.quiz, errors:err.errors});
 				
 			}else{
-			
-				
-				//guarda en DB los campos pregunta y respuesta de quiz
+		
+		//guarda en DB los campos pregunta y respuesta de quiz
 				req.quiz
 				.save({fields: ["pregunta","respuesta","indice"]})
 				.then(function () {res.redirect('/quizes');});
